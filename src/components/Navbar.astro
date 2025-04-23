@@ -1,0 +1,60 @@
+---
+import ThemeSwitcher from './ThemeSwitcher.astro';
+---
+
+<header class="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md transition-colors duration-300 shadow-sm">
+  <div class="container-custom flex items-center justify-between h-20">
+    <a href="/" class="text-2xl font-display font-bold">
+      <span class="text-primary-light dark:text-primary-dark">Juan David Santacruz Naravez</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#about" class="font-medium hover:text-accent transition-colors">About Me</a>
+      <a href="#projects" class="font-medium hover:text-accent transition-colors">Projects</a>
+      <a href="#resume" class="font-medium hover:text-accent transition-colors">Resume</a>
+      <a href="#contact" class="font-medium hover:text-accent transition-colors">Contact Me</a>
+      <ThemeSwitcher />
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="md:hidden flex items-center gap-4">
+      <ThemeSwitcher />
+      <button id="mobile-menu-toggle" class="text-primary-light dark:text-primary-dark p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-black shadow-md absolute w-full transition-all duration-300">
+    <nav class="container-custom py-4 flex flex-col gap-4">
+      <a href="#about" class="font-medium py-2 hover:text-accent transition-colors">About Me</a>
+      <a href="#projects" class="font-medium py-2 hover:text-accent transition-colors">Projects</a>
+      <a href="#resume" class="font-medium py-2 hover:text-accent transition-colors">Resume</a>
+      <a href="#contact" class="font-medium py-2 hover:text-accent transition-colors">Contact Me</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+
+  // Handle theme persistence
+  const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+</script>

@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PokemonCard from '../components/PokemonCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import SocialButton from '../components/SocialButton.astro';
+
+const cardImages = [
+  [
+    "https://i.pinimg.com/736x/cc/74/f9/cc74f9d93548e0599daa874178a0fc40.jpg",
+    "https://creatorspace.imgix.net/users/cm9hjm8ll05s5ta01md28sknc/oNxhGjJbux5uZu4r-yo%2520real.JPG?w=750&h=750"
+  ],
+  [
+    "https://i.pinimg.com/736x/0c/2c/aa/0c2caae03467c2ff72c6a1cbd7c99826.jpg",
+    "https://creatorspace.imgix.net/users/cm9hjm8ll05s5ta01md28sknc/71ztRK0zS9I5Iisr-WhatsApp%2520Image%25202025-04-21%2520at%252012.22.14%2520AM.jpeg?w=750&h=750"
+  ],
+  [
+    "https://i.pinimg.com/736x/88/a7/d6/88a7d66cdc6cc4c6d23268489e3bf3e2.jpg",
+    "https://creatorspace.imgix.net/users/cm9hjm8ll05s5ta01md28sknc/EdJmyFrcugrrk0S9-WhatsApp%2520Image%25202025-04-21%2520at%252012.22.18%2520AM.jpeg?w=750&h=750"
+  ]
+];
+
+const projects = [
+  { 
+    title: "Portfolio",
+    link: "https://www.behance.net/gallery/218613499/Portfolio",
+    image: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/544315218613499.67a4342832f16.png"
+  },
+  { 
+    title: "Crédito para todos - Neocrédito",
+    link: "https://www.behance.net/gallery/213420837/Crdito-para-todos-Neocrdito",
+    image: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/b1e5a7213420837.674617e2a213b.png"
+  },
+  { 
+    title: "Genius",
+    link: "https://www.behance.net/gallery/200416223/Genius",
+    image: "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/ea2da7200416223.6661ce43b6fe7.png"
+  },
+  { 
+    title: "Beat Pick",
+    link: "https://www.behance.net/gallery/213617025/Beat-Pick-Tu-musica-a-la-medida",
+    image: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/7089e3213617025.6749c33f91d66.png"
+  },
+  { 
+    title: "DAVIPLATA",
+    link: "https://www.behance.net/gallery/183068785/DAVIPLATA",
+    image: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/502aaf183068785.65390876814e6.jpg"
+  },
+  { 
+    title: "FitZone",
+    link: "https://www.behance.net/gallery/200419073/FitZone-Elevating-Your-Workout-Experience",
+    image: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/8a73dd200419073.6663a1230b4cc.png"
+  }
+];
+
+const socialLinks = [
+  { platform: "Behance", url: "https://www.behance.net/juandasantacr", label: "Behance" },
+  { platform: "LinkedIn", url: "https://www.linkedin.com/in/juanda-santacruz/", label: "LinkedIn" },
+  { platform: "Instagram", url: "https://www.instagram.com/zdavid_73", label: "Instagram" },
+  { platform: "Bento", url: "https://bento.me/juandasantacruz", label: "Bento" },
+  { platform: "Gmail", url: "mailto:fandango981@gmail.com", label: "fandango981@gmail.com" }
+];
+---
+
+<Layout title="Juan David Santacruz Narváez | Portfolio">
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex flex-col items-center justify-center pt-20 pb-12">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4" data-aos="fade-down">
+          Juanda
+        </h1>
+        <p class="text-xl md:text-2xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+          🎨 UX/UI Designer | 🖌️ 3D Designer | 💻 Front-end Developer | 🛠️ Product & Service Design |⚡ Prototyping | 🎯 Branding Strategy | 🤝 Interaction Design | 🔍 User Research
+        </p>
+      </div>
+
+      <!-- Pokemon Cards -->
+      <div class="flex flex-wrap justify-center gap-8 mt-12">
+        {cardImages.map((images, index) => (
+          <PokemonCard 
+            images={images}
+            index={index} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="section bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="container-custom">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center" data-aos="fade-up">About Me</h2>
+      <div class="max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        <p class="text-lg leading-relaxed mb-6">
+          I'm a passionate UX/UI designer with a focus on creating intuitive, beautiful, and functional digital experiences. 
+          My approach combines aesthetic sensibility with strategic thinking to solve complex design challenges.
+        </p>
+        <p class="text-lg leading-relaxed">
+          With a background in graphic design and a deep understanding of user-centered design principles, 
+          I create solutions that not only look great but also provide meaningful experiences for users.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container-custom">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center" data-aos="fade-up">Featured Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        {projects.map((project, index) => (
+          <ProjectCard 
+            title={project.title} 
+            link={project.link}
+            image={project.image}
+            index={index} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="section bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="container-custom">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center" data-aos="fade-up">Resume</h2>
+      <div class="flex flex-col sm:flex-row justify-center gap-6 max-w-lg mx-auto" data-aos="fade-up" data-aos-delay="100">
+        <a 
+          href="https://drive.google.com/drive/folders/1sOv8ICP9aBR-ZZIH-7BS2e9mosBeSwPi" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn btn-primary text-center"
+        >
+          Download CV (English)
+        </a>
+        <a 
+          href="https://drive.google.com/drive/folders/1VZ1dZ1W3kRZJfN1OvcbnZ1xWP_E3iH5j" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn btn-primary text-center"
+        >
+          Download CV (Spanish)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container-custom">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center" data-aos="fade-up">Contact Me</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        {socialLinks.map((social, index) => (
+          <SocialButton 
+            platform={social.platform} 
+            url={social.url} 
+            label={social.label} 
+            index={index} 
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

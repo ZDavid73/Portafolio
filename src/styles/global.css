@@ -1,0 +1,86 @@
+/* Global styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-base leading-relaxed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold leading-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  /* Custom scroll bar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent rounded-md;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-md font-semibold transition duration-300 inline-block;
+  }
+  
+  .btn-primary {
+    @apply bg-accent text-primary-light dark:text-background-dark border-2 border-primary-light dark:border-primary-dark 
+           hover:bg-transparent hover:text-primary-light dark:hover:text-primary-dark;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-xl shadow-lg transition duration-300 hover:shadow-xl overflow-hidden;
+  }
+
+  /* Pokemon card styles */
+  .pokemon-card {
+    @apply relative w-40 h-56 md:w-44 md:h-64 rounded-xl shadow-xl overflow-hidden 
+           transition-all duration-300 transform hover:scale-105;
+  }
+
+  .pokemon-card-inner {
+    @apply absolute inset-0 p-0.5 bg-gradient-to-br from-pink-400 via-primary-light to-primary-dark rounded-xl;
+  }
+
+  .pokemon-card-content {
+    @apply absolute inset-0.5 bg-white dark:bg-gray-900 rounded-[14px] overflow-hidden flex flex-col;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure proper spacing for sections */
+section {
+  scroll-margin-top: 80px;
+}
