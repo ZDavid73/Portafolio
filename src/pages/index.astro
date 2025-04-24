@@ -54,9 +54,8 @@ const projects = [
 
 const socialLinks = [
   { platform: "Behance", url: "https://www.behance.net/juandasantacr", label: "Behance" },
-  { platform: "LinkedIn", url: "https://www.linkedin.com/in/juanda-santacruz/", label: "LinkedIn" },
-  { platform: "Instagram", url: "https://www.instagram.com/zdavid_73", label: "Instagram" },
   { platform: "Bento", url: "https://bento.me/juandasantacruz", label: "Bento" },
+  { platform: "Instagram", url: "https://www.instagram.com/zdavid_73", label: "Instagram" },
   { platform: "Gmail", url: "mailto:fandango981@gmail.com", label: "fandango981@gmail.com" }
 ];
 ---
@@ -149,16 +148,35 @@ const socialLinks = [
   <section id="contact" class="section">
     <div class="container-custom">
       <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center" data-aos="fade-up">Contact Me</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-        {socialLinks.map((social, index) => (
-          <SocialButton 
-            platform={social.platform} 
-            url={social.url} 
-            label={social.label} 
-            index={index} 
-          />
-        ))}
+      <div class="flex flex-col items-center gap-8 max-w-4xl mx-auto">
+        <!-- LinkedIn Badge -->
+        <div class="w-full flex justify-center mb-4" data-aos="fade-up">
+          <div class="block dark:hidden">
+            <div class="badge-base LI-profile-badge" data-locale="es_ES" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="juanda-santacruz" data-version="v1">
+              <a class="badge-base__link LI-simple-link" href="https://co.linkedin.com/in/juanda-santacruz?trk=profile-badge">JUAN DAVID SANTACRUZ NARVAEZ</a>
+            </div>
+          </div>
+          <div class="hidden dark:block">
+            <div class="badge-base LI-profile-badge" data-locale="es_ES" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="juanda-santacruz" data-version="v1">
+              <a class="badge-base__link LI-simple-link" href="https://co.linkedin.com/in/juanda-santacruz?trk=profile-badge">JUAN DAVID SANTACRUZ NARVAEZ</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Social Links Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 w-full">
+          {socialLinks.map((social, index) => (
+            <SocialButton 
+              platform={social.platform} 
+              url={social.url} 
+              label={social.label} 
+              index={index} 
+            />
+          ))}
+        </div>
       </div>
     </div>
   </section>
 </Layout>
+
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
